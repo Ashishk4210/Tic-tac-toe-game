@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --main-bg: #FFF1E6;
+    --title: #452D4C;
+    --p: #756879;
+    --score: #ffffff;
+    --PlayerX: #AE4478;
+    --PlayerO: #A46B25;
+    --Board: #3E2945;
+    --Tiles: #543A5B;
+    --Button: #AE4478;
+    --Text: #FFF8F2;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Saira";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--main-bg);
+}
+.title{
+    color: var(--title);
+    margin: 0;
+}
+.p{
+    color: var(--p);
+    margin: 0;
+}
+.sections{
+    display: flex;
+    gap: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+section{
+    background-color: var(--score);
+    border-radius: 10px;
+    padding: 0 30px;
+
+}
+section h2{
+    color: var(--title);
+}
+.score-X h3{
+    color: var(--PlayerX);
+}
+.score-O h3{
+    color: var(--PlayerO);
+}
+.main-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 10px;
+    width: 270px;
+    background-color: var(--Board);
+    box-shadow: 0 0 10px var(--Board);
+    border-radius: 10px;
+}
+.main-container div{
+    background-color: var(--Tiles);
+    border-bottom: 5px solid #35223B;
+    border-radius: 5px;
+    text-align: center;
+
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.main-container div p{
+    display: none;
+}
+.new-game{
+    background-color: var(--Button);
+    margin: 20px;
+    padding: 10px 100px;
+    border: none;
+    border-bottom: 5px solid #713052;
+    border-radius: 10px;
+    color: var(--Text);
+    font-size: 1.2em;
+}
