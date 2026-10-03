@@ -1,43 +1,49 @@
 const symbols = document.querySelectorAll('.symbol');
-const turn = document.querySelector('.turn');
+const turnIndicator = document.querySelector('.turn');
 const newGame = document.querySelector('.new-game')
-console.log(symbols)
+
 
 
 //Turn-Logic
-
+let currentPlayer = "X";
 symbols.forEach(symbol => {
     symbol.addEventListener('click', function(){
-        symbols.forEach(symbol => {
-            symbol.classList.toggle("active");
-        })
-        if(symbol.classList.contains("active")){
+        if(symbol.classList.contains("X") || symbol.classList.contains("O")){
+            return;
+        }
+        if(currentPlayer === "X"){
+            symbol.classList.add("X");
             symbol.style.border = "1px solid #FF75A8";
             symbol.innerHTML = `<p>X</p>`;
             symbol.lastChild.style.display = "block";
             symbol.lastChild.style.color = "#FF75A8";
-            turn.innerHTML = "Your turn, Player O!"
+            turnIndicator.innerHTML = "Your turn, Player O!";
+            currentPlayer = "O";
         }
         else{
+            symbol.classList.add("O");
             symbol.style.border = "1px solid #FFC45C";
             symbol.innerHTML = `<p>O</p>`;
             symbol.lastChild.style.display = "block";
             symbol.lastChild.style.color = "#FFC45C";
-            turn.innerHTML = "Your turn, Player X!"
+            turnIndicator.innerHTML = "Your turn, Player X!";
+            currentPlayer = "X";
         }
-    }, {once: true});
+    });
 });
 
 //New Game Logic
 
 newGame.addEventListener('click', function(){
+    currentPlayer = "X";
     symbols.forEach(symbol => {
-        symbol.classList.remove('active');
+        symbol.classList.remove('X', 'O');
+        symbol.innerHTML = `<p>0</p>`;
         symbol.style.border = "none";
         symbol.style.borderBottom = "5px solid #35223B";
         symbol.lastChild.style.display = "none";
-        turn.innerHTML = "Your turn, Player X!"
     })
+    turnIndicator.innerHTML = "Your turn, Player X!";
 })
 
-//Winning Logic
+//Win/Draw Logic

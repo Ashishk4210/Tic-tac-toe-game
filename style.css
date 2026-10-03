@@ -66,6 +66,7 @@ section h2{
     border-bottom: 5px solid #35223B;
     border-radius: 5px;
     text-align: center;
+    cursor: pointer;
 
     display: flex;
     height: 30px;
@@ -84,4 +85,5 @@ section h2{
     border-radius: 10px;
     color: var(--Text);
     font-size: 1.2em;
+    cursor: pointer;
 }
